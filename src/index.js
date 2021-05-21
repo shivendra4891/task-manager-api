@@ -6,7 +6,7 @@ const userRouter = require('../router/user')
 const taskRouter = require('../router/task')
 
 const app = express()
-const port = process.env.port || 3000
+const port = process.env.PORT
 // Middleware function before calling the router
 
 // app.use((req, res, next)=>{
@@ -35,11 +35,11 @@ const multer = require('multer')
 const upload = multer({
     dest:'images'
 })
-console.log(upload)
+
 app.post('/uploads',upload.single('upload'), (req, res)=>{
     res.send()
 })
 
-app.listen(3000, () => {
-    console.log('Server has started........')
+app.listen(3000, (port) => {
+    console.log('Server has started.........')
 })
